@@ -38,6 +38,10 @@
             "error",
             "always"
         ],
+        "react/self-closing-comp": ["error", {
+          "component": true,
+          "html": true
+        }],
         "react-refresh/only-export-components": [
           "warn",
           { "allowConstantExport": true }
