@@ -42,10 +42,12 @@
           "component": true,
           "html": true
         }],
+        "react/jsx-closing-bracket-location": ["error", "tag-aligned"],
         "react-refresh/only-export-components": [
           "warn",
           { "allowConstantExport": true }
         ],
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "@typescript-eslint/no-unused-vars": "warn"
     }
 }
