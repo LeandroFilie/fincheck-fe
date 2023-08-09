@@ -42,6 +42,8 @@
           "component": true,
           "html": true
         }],
+        "object-curly-spacing": ["error", "always"],
+        "array-bracket-spacing": ["error", "always"],
         "react/jsx-closing-bracket-location": ["error", "tag-aligned"],
         "react-refresh/only-export-components": [
           "warn",

@@ -4,7 +4,7 @@ interface AuthGuardProps {
   isPrivate: boolean;
 }
 
-export function AuthGuard({isPrivate} : AuthGuardProps) {
+export function AuthGuard({ isPrivate } : AuthGuardProps) {
   const signedIn = false;
 
   if (!signedIn && isPrivate) {
