@@ -8,6 +8,7 @@ export function Register() {
     handleSubmit,
     register,
     errors,
+    isLoading,
   } = useRegisterController();
   return (
     <>
@@ -42,7 +43,7 @@ export function Register() {
           {...register("password")}
         />
 
-        <Button type="submit" className="mt-2">Criar conta</Button>
+        <Button type="submit" className="mt-2" isLoading={isLoading}>Criar conta</Button>
       </form>
     </>
   );
