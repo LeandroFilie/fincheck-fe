@@ -1,3 +1,4 @@
+import { authService } from "@app/services/authService";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -24,8 +25,9 @@ export function useRegisterController() {
     resolver: zodResolver(schema),
   });
 
-  const handleSubmit = hookFormHandleSubmit((data) => {
-    console.log(data);
+  const handleSubmit = hookFormHandleSubmit(async (data) => {
+    const {token} = await authService.signup(data);
+    console.log({token});
 
   });
 
