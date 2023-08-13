@@ -15,7 +15,7 @@
         "node": {
           "paths": ["src"]
         }
-      },
+      }
     },
     "overrides": [
     ],
@@ -43,6 +43,7 @@
         "eventHandlerPrefix": "handle",
         "eventHandlerPropPrefix": "on"
       }],
+      "react/display-name": "off",
       "react/jsx-indent-props": ["error", 2],
       "react/jsx-key": "off",
       "react/jsx-max-props-per-line": ["error", { "maximum": 1, "when": "multiline" }],
