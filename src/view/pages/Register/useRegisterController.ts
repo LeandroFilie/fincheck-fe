@@ -1,8 +1,10 @@
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 const schema = z.object({
+  name: z.string()
+    .nonempty('Nome é obrigatório'),
   email: z.string()
     .nonempty('E-mail é obrigatório')
     .email('Informe um e-mail válido'),
@@ -13,18 +15,17 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
-export function useLoginController() {
+export function useRegisterController() {
   const {
-    register,
     handleSubmit: hookFormHandleSubmit,
-    formState: { errors },
+    register,
+    formState: {errors},
   } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
 
-
   const handleSubmit = hookFormHandleSubmit((data) => {
-    schema.parse(data);
+    console.log(data);
 
   });
 
