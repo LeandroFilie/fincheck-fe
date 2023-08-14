@@ -6,7 +6,9 @@ interface ButtonProps extends ComponentProps<'button'> {
   isLoading?: boolean;
 }
 
-export function Button({className, isLoading, disabled, children, ...props}: ButtonProps) {
+export function Button({
+  className, isLoading, disabled, children, ...props
+}: ButtonProps) {
   return (
     <button
       {...props}

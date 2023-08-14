@@ -1,5 +1,5 @@
-import { sleep } from "@app/utils/sleep";
-import { httpClient } from "../httpClient";
+import { sleep } from '@app/utils/sleep';
+import { httpClient } from '../httpClient';
 
 export interface SigninParams {
   email: string;

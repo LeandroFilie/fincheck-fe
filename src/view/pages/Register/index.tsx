@@ -10,6 +10,7 @@ export function Register() {
     errors,
     isLoading,
   } = useRegisterController();
+
   return (
     <>
       <header className="flex flex-col items-center gap-4 text-center">
@@ -28,19 +29,19 @@ export function Register() {
           type="text"
           placeholder="Nome"
           error={errors.name?.message}
-          {...register("name")}
+          {...register('name')}
         />
         <Input
           type="email"
           placeholder="E-mail"
           error={errors.email?.message}
-          {...register("email")}
+          {...register('email')}
         />
         <Input
           type="password"
           placeholder="Senha"
           error={errors.password?.message}
-          {...register("password")}
+          {...register('password')}
         />
 
         <Button type="submit" className="mt-2" isLoading={isLoading}>Criar conta</Button>

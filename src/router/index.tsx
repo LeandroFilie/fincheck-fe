@@ -1,11 +1,11 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import { AuthGuard } from './AuthGuard';
 import { AuthLayout } from '@layouts/AuthLayout';
 import { Login } from '@pages/Login';
 import { Register } from '@pages/Register';
 import { Dashboard } from '@pages/Dashboard';
+import { AuthGuard } from './AuthGuard';
 
-export function Router(){
+export function Router() {
   return (
     <BrowserRouter>
       <Routes>
