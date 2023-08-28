@@ -3,7 +3,14 @@ import { Toaster } from 'react-hot-toast';
 import { Router } from './router';
 import { AuthProvider } from './app/contexts/AuthContext';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 function App() {
   return (

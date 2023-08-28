@@ -586,7 +586,8 @@
           "res",
           "response",
           "$scope",
-          "staticContext"
+          "staticContext",
+          "config"
         ]
       }],
       "no-proto": "error",
