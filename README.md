@@ -1,27 +1,52 @@
-# React + TypeScript + Vite
+# Fincheck
+<i>🚧Este projeto ainda está em construção!🚧</i>
+- App web que faz o controle de contas e finanças. Nele você pode gerenciar os seus gastos, contas bancárias e transações. Este projeto é o Front-End que faz o consumo de uma API REST
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Layout
+O layout do projeto foi desenvolvido através da plataforma [Figma](figma.com). [Clique aqui](https://www.figma.com/file/7dydDfqmpnvY3HkXvdXoaL/Fincheck?type=design&node-id=229%3A8335&mode=design&t=QhTrUpPZkLTbIGQn-1) e acesse o protótipo.
+<p>
+  <img src="https://gist.githubusercontent.com/LeandroFilie/2cdbfaa1e7ed32e78a30698510b28095/raw/76fd30ba7f3028b8ded8bf23a926f5f03c94b8c9/Capa.png" />
+</p>
 
-Currently, two official plugins are available:
+## Stack Utilizada
+- React.js
+- TypeScript
+- React Router Dom
+- React Hook Form
+- Zod
+- Axios
+- React Query
+- TailwindCSS
+- HeadlessUi
+- ESlint
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Rodando Localmente
+### Requisitos
 
-## Expanding the ESLint configuration
+- É necessário que tenha instalado [Node](https://nodejs.org/en) para rodar o projeto.
+- É necessário que a [API](https://github.com/LeandroFilie/fincheck-backend) esteja rodando (para o funcionamento completo).
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Clone o projeto, acesse a pasta e instale as dependências
 
-- Configure the top-level `parserOptions` property like this:
+```bash
+$ git clone https://github.com/LeandroFilie/fincheck-frontend.git
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+$ cd fincheck-frontend
+
+$ npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Renomeie o arquivo `.env.example` para `.env` e preencha com o endereço da API
+```env
+VITE_API_URL=http://localhost:3003
+```
+
+Inicie o servidor da aplicação
+
+```bash
+
+$ npm run dev
+
+```
+Acesse o App pelo seu navegador pelo endereço: `http://localhost:5173/`
+
