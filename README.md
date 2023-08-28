@@ -1,6 +1,7 @@
 # Fincheck
 <i>🚧Este projeto ainda está em construção!🚧</i>
 - App web que faz o controle de contas e finanças. Nele você pode gerenciar os seus gastos, contas bancárias e transações. Este projeto é o Front-End que faz o consumo de uma API REST
+- O projeto conta com uma autenticação e um CRUD utilizando as tecnologias mais recentes tanto para desenvolvimento quanto para integração.
 
 ## Layout
 O layout do projeto foi desenvolvido através da plataforma [Figma](figma.com). [Clique aqui](https://www.figma.com/file/7dydDfqmpnvY3HkXvdXoaL/Fincheck?type=design&node-id=229%3A8335&mode=design&t=QhTrUpPZkLTbIGQn-1) e acesse o protótipo.
