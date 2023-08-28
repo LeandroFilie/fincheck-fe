@@ -5,7 +5,7 @@
 ## Layout
 O layout do projeto foi desenvolvido através da plataforma [Figma](figma.com). [Clique aqui](https://www.figma.com/file/7dydDfqmpnvY3HkXvdXoaL/Fincheck?type=design&node-id=229%3A8335&mode=design&t=QhTrUpPZkLTbIGQn-1) e acesse o protótipo.
 <p>
-  <img src="https://gist.githubusercontent.com/LeandroFilie/2cdbfaa1e7ed32e78a30698510b28095/raw/76fd30ba7f3028b8ded8bf23a926f5f03c94b8c9/Capa.png" />
+  <img src="https://gist.githubusercontent.com/LeandroFilie/2cdbfaa1e7ed32e78a30698510b28095/raw/1047fbce1c79cf9c1ca67fb793d68b37fe3c09e1/fincheck.png" />
 </p>
 
 ## Stack Utilizada
