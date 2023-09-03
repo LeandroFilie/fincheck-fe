@@ -3,8 +3,11 @@ import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { AccountCard } from './AccountCard';
 import { AccountsSliderNavigation } from './AccountsSliderNavigation';
+import { useAccountsController } from './useAccountsController';
 
 export function Accounts() {
+  const { sliderState, setSliderState } = useAccountsController();
+
   return (
     <div className="bg-teal-900 rounded-2xl w-full h-full px-4 py-8 md:p-10 flex flex-col">
       <span className="tracking-[-0.5px] text-white block">Saldo total</span>
@@ -21,12 +24,18 @@ export function Accounts() {
           <Swiper
             spaceBetween={16}
             slidesPerView={2.1}
+            onSlideChange={(swiper) => {
+              setSliderState({ isBeginning: swiper.isBeginning, isEnd: swiper.isEnd });
+            }}
           >
             <div className='flex items-center justify-between mb-4' slot='container-start'>
               <strong className="tracking-[-1px] text-white text-lg">
                 Minhas Contas
               </strong>
-              <AccountsSliderNavigation />
+              <AccountsSliderNavigation
+                isBeginning={sliderState.isBeginning}
+                isEnd={sliderState.isEnd}
+              />
             </div>
 
             <div>
