@@ -112,6 +112,7 @@ export default {
         },
 
         teal: {
+          0: '#E6FCF5',
           50: '#E6FCF5',
           100: '#C3FAE8',
           200: '#96F2D7',
