@@ -1,8 +1,8 @@
 import { EyeIcon } from '@components/icons/EyeIcon';
 import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { AccountCard } from './AccountCard';
-import { AccountsSliderNavigation } from './AccountsSliderNavigation';
+import { Card } from './Card';
+import { SliderNavigation } from './SliderNavigation';
 import { useAccountsController } from './useAccountsController';
 
 export function Accounts() {
@@ -32,7 +32,7 @@ export function Accounts() {
               <strong className="tracking-[-1px] text-white text-lg">
                 Minhas Contas
               </strong>
-              <AccountsSliderNavigation
+              <SliderNavigation
                 isBeginning={sliderState.isBeginning}
                 isEnd={sliderState.isEnd}
               />
@@ -40,13 +40,13 @@ export function Accounts() {
 
             <div>
               <SwiperSlide>
-                <AccountCard color='#7950F2' name='Nubank' balance={1000} type='CHECKING' />
+                <Card color='#7950F2' name='Nubank' balance={1000} type='CHECKING' />
               </SwiperSlide>
               <SwiperSlide>
-                <AccountCard color='#343A40' name='XP Investimentos' balance={1000.23} type='INVESTMENT' />
+                <Card color='#343A40' name='XP Investimentos' balance={1000.23} type='INVESTMENT' />
               </SwiperSlide>
               <SwiperSlide>
-                <AccountCard color='#0F0' name='Carteira' balance={1000} type='CASH' />
+                <Card color='#0F0' name='Carteira' balance={1000} type='CASH' />
               </SwiperSlide>
             </div>
           </Swiper>

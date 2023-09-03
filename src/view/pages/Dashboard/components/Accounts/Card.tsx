@@ -1,16 +1,16 @@
 import { formatCurrency } from '@app/utils/formatCurrency';
 import { BankAccountIcon } from '@components/icons/bankAccount/BankAccountIcon';
 
-interface AccountCardProps {
+interface CardProps {
   color: string;
   name: string;
   balance: number;
   type: 'CASH' | 'INVESTMENT' | 'CHECKING';
 }
 
-export function AccountCard({
+export function Card({
   color, name, balance, type,
-} : AccountCardProps) {
+} : CardProps) {
   return (
     <div
       className="p-4 bg-white rounded-2xl h-[200px] flex flex-col justify-between border-b-4 border-teal-950"
