@@ -1,13 +1,18 @@
 import { cn } from '@app/utils/cn';
 import * as Dialog from '@radix-ui/react-dialog';
+import { Cross2Icon } from '@radix-ui/react-icons';
 import { ReactNode } from 'react';
 
 interface ModalProps {
   open: boolean;
   children: ReactNode;
+  title: string;
+  rigthAction?: ReactNode;
 }
 
-export function Root({ open, children }: ModalProps) {
+export function Modal({
+  open, children, title, rigthAction,
+}: ModalProps) {
   return (
     <Dialog.Root open={open}>
       <Dialog.Portal>
@@ -22,7 +27,19 @@ export function Root({ open, children }: ModalProps) {
             'data-[state=open]:animate-content-show',
           )}
         >
-          {children}
+          <header
+            className="h-12 flex items-center justify-between text-gray-800"
+          >
+            <button className='w-12 h-12'>
+              <Cross2Icon className='w-6 h-6' />
+            </button>
+            <span className='text-lg font-bold tracking-[-1px]'>{title}</span>
+            <div className='w-12 h-12 flex items-center justify-center'>{rigthAction}</div>
+          </header>
+
+          <div>
+            {children}
+          </div>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
