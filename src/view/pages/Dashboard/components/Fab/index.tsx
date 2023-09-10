@@ -7,12 +7,8 @@ export function Fab() {
   return (
     <div className='fixed right-4 bottom-4 '>
       <DropdownMenu.Root>
-        <DropdownMenu.Trigger>
-          <button
-            className='text-white h-12 w-12 rounded-full bg-teal-900 flex items-center justify-center'
-          >
-            <PlusIcon className='w-6 h-6' />
-          </button>
+        <DropdownMenu.Trigger className='text-white h-12 w-12 rounded-full bg-teal-900 flex items-center justify-center'>
+          <PlusIcon className='w-6 h-6' />
         </DropdownMenu.Trigger>
 
         <DropdownMenu.Content side='top'>
