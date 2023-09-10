@@ -19,6 +19,7 @@ O layout do projeto foi desenvolvido através da plataforma [Figma](figma.com). 
 - React Query
 - TailwindCSS
 - HeadlessUi
+- Radix
 - ESlint
 
 ## Rodando Localmente
