@@ -10,10 +10,17 @@ import { SliderOption } from './SliderOption';
 import { SliderNavigation } from './SliderNavigation';
 import { useTransactionsController } from './useTransactionsController';
 import { TransactionTypeDropdown } from './TransactionTypeDropdown';
+import { FiltersModal } from './FiltersModal';
 
 export function Transactions() {
   const {
-    areValuesVisible, isInitialLoading, transactions, isLoading,
+    areValuesVisible,
+    isInitialLoading,
+    transactions,
+    isLoading,
+    isFilterModallOpen,
+    handleOpenFilterModal,
+    handleCloseFilterModal,
   } = useTransactionsController();
 
   const hasTransactions = transactions.length > 0;
@@ -27,10 +34,11 @@ export function Transactions() {
       )}
       {!isInitialLoading && (
         <>
+          <FiltersModal open={isFilterModallOpen} onClose={handleCloseFilterModal} />
           <header className="">
             <div className='flex items-center justify-between'>
               <TransactionTypeDropdown />
-              <button>
+              <button onClick={handleOpenFilterModal}>
                 <FilterIcon />
               </button>
             </div>

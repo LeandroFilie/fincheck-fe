@@ -1,5 +1,6 @@
 import { UserMenu } from '@components/UserMenu';
 import { Logo } from '@components/Logo';
+import { Modal } from '@components/Modal';
 import { Accounts } from './components/Accounts';
 import { Transactions } from './components/Transactions';
 import { DashboardProvider } from './components/DashboardContext';
