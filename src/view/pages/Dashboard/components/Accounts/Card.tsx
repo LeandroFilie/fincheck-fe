@@ -1,6 +1,6 @@
 import { formatCurrency } from '@app/utils/formatCurrency';
-import { BankAccountIcon } from '@components/icons/bankAccount/BankAccountIcon';
 import { cn } from '@app/utils/cn';
+import { BankAccountTypeIcon } from '@components/icons/bankAccountType/BankAccountTypeIcon';
 import { useDashboard } from '../DashboardContext/useDashboard';
 
 interface CardProps {
@@ -21,7 +21,7 @@ export function Card({
       style={{ borderColor: color }}
     >
       <div>
-        <BankAccountIcon type={type} />
+        <BankAccountTypeIcon type={type} />
         <span className='text-gray-800 font-medium tracking-[-0.5px] block mt-4'>
           {name}
         </span>
