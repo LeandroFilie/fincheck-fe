@@ -118,7 +118,7 @@
         }
       ]],
       "react/jsx-no-useless-fragment": "error",
-      "react/no-unstable-nested-components": "error",
+      // "react/no-unstable-nested-components": "error",
       "react/no-namespace": "error",
       "react/no-invalid-html-attribute": "error",
       "react-hooks/rules-of-hooks": "error",

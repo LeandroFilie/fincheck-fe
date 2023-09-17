@@ -3,6 +3,7 @@ import { InputCurrency } from '@components/InputCurrency';
 import { Input } from '@components/Input';
 import { Select } from '@components/Select';
 import { ColorsDropdownInput } from '@components/ColorsDropdownInput';
+import { Button } from '@components/Button';
 import { useNewAccountModalController } from './useNewAccountModalController';
 
 export function NewAccountModal() {
@@ -35,6 +36,8 @@ export function NewAccountModal() {
           />
 
           <ColorsDropdownInput />
+
+          <Button className='mt-2'>Criar</Button>
         </div>
       </form>
     </Modal>
