@@ -1,10 +1,10 @@
 import { UserMenu } from '@components/UserMenu';
 import { Logo } from '@components/Logo';
-import { Modal } from '@components/Modal';
 import { Accounts } from './components/Accounts';
 import { Transactions } from './components/Transactions';
 import { DashboardProvider } from './components/DashboardContext';
 import { Fab } from './components/Fab';
+import { NewAccountModal } from './modals/NewAccountModal';
 
 export function Dashboard() {
   return (
@@ -24,6 +24,7 @@ export function Dashboard() {
         </main>
 
         <Fab />
+        <NewAccountModal />
       </div>
     </DashboardProvider>
   );
