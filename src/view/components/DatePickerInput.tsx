@@ -8,10 +8,19 @@ import { DatePicker } from './DatePicker';
 interface ColorsDropdownInputProps {
   className?: string;
   error?: string;
+  value?: Date;
+  onChange?(date: Date): void;
 }
 
-export function DatePickerInput({ className, error }: ColorsDropdownInputProps) {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+export function DatePickerInput({
+  className, error, value, onChange,
+}: ColorsDropdownInputProps) {
+  const [selectedDate, setSelectedDate] = useState(value ?? new Date());
+
+  function handleChangeDate(date: Date) {
+    setSelectedDate(date);
+    onChange?.(date);
+  }
 
   return (
     <div>
@@ -37,7 +46,7 @@ export function DatePickerInput({ className, error }: ColorsDropdownInputProps) 
         <Popover.Content>
           <DatePicker
             value={selectedDate}
-            onChange={(date) => setSelectedDate(date)}
+            onChange={handleChangeDate}
           />
         </Popover.Content>
       </Popover.Root>
