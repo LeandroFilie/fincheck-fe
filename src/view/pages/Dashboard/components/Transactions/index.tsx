@@ -40,7 +40,10 @@ export function Transactions() {
           <FiltersModal open={isFilterModallOpen} onClose={handleCloseFilterModal} />
           <header className="">
             <div className='flex items-center justify-between'>
-              <TransactionTypeDropdown />
+              <TransactionTypeDropdown
+                onSelect={handleChangeFilters('type')}
+                selectedType={filters.type}
+              />
               <button onClick={handleOpenFilterModal}>
                 <FilterIcon />
               </button>
