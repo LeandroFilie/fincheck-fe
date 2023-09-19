@@ -24,6 +24,7 @@ export function Transactions() {
     handleCloseFilterModal,
     handleChangeFilters,
     filters,
+    handleApplyFilters,
   } = useTransactionsController();
 
   const hasTransactions = transactions.length > 0;
@@ -37,7 +38,11 @@ export function Transactions() {
       )}
       {!isInitialLoading && (
         <>
-          <FiltersModal open={isFilterModallOpen} onClose={handleCloseFilterModal} />
+          <FiltersModal
+            open={isFilterModallOpen}
+            onClose={handleCloseFilterModal}
+            onApplyFilters={handleApplyFilters}
+          />
           <header className="">
             <div className='flex items-center justify-between'>
               <TransactionTypeDropdown

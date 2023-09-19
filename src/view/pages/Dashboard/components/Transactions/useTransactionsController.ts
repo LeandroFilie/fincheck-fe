@@ -5,7 +5,7 @@ import { useDashboard } from '../DashboardContext/useDashboard';
 
 export function useTransactionsController() {
   const { areValuesVisible } = useDashboard();
-  const [isFilterModallOpen, setIsFilterModallOpen] = useState(false);
+  const [isFilterModallOpen, setIsFilterModalOpen] = useState(false);
   const [filters, setFilters] = useState<TransactionsFilters>({
     month: new Date().getMonth(),
     year: new Date().getFullYear(),
@@ -29,12 +29,21 @@ export function useTransactionsController() {
     };
   }
 
+  function handleApplyFilters({
+    bankAccountId,
+    year,
+  }: {bankAccountId: string | undefined; year: number}) {
+    handleChangeFilters('bankAccountId')(bankAccountId);
+    handleChangeFilters('year')(year);
+    setIsFilterModalOpen(false);
+  }
+
   function handleOpenFilterModal() {
-    setIsFilterModallOpen(true);
+    setIsFilterModalOpen(true);
   }
 
   function handleCloseFilterModal() {
-    setIsFilterModallOpen(false);
+    setIsFilterModalOpen(false);
   }
 
   return {
@@ -47,5 +56,6 @@ export function useTransactionsController() {
     handleCloseFilterModal,
     handleChangeFilters,
     filters,
+    handleApplyFilters,
   };
 }
