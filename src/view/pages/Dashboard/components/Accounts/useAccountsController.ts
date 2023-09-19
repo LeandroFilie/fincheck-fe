@@ -7,7 +7,12 @@ import { useDashboard } from '../DashboardContext/useDashboard';
 export function useAccountsController() {
   const [sliderState, setSliderState] = useState({ isBeginning: true, isEnd: false });
   const windowWidth = useWindowWidth();
-  const { areValuesVisible, toggleValuesVisibility, openNewAccountModal } = useDashboard();
+  const {
+    areValuesVisible,
+    toggleValuesVisibility,
+    openNewAccountModal,
+    openEditAccountModal,
+  } = useDashboard();
 
   const { data, isFetching } = useQuery({
     queryKey: ['bankAccounts'],
@@ -30,5 +35,6 @@ export function useAccountsController() {
     accounts: data ?? [],
     openNewAccountModal,
     currentBalance,
+    openEditAccountModal,
   };
 }
