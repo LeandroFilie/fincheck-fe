@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTransactions } from '@app/hooks/useTransactions';
 import { TransactionsFilters } from '@app/services/transactionsService/getAll';
+import { Transaction } from '@app/types/Transaction';
 import { useDashboard } from '../DashboardContext/useDashboard';
 
 export function useTransactionsController() {
@@ -13,6 +14,11 @@ export function useTransactionsController() {
   const {
     transactions, isLoading, isInitialLoading, refetchTransactions,
   } = useTransactions(filters);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [
+    transactionBeingEdited,
+    setTransactionBeingEdited,
+  ] = useState<null | Transaction>(null);
 
   useEffect(() => {
     refetchTransactions();
@@ -46,6 +52,16 @@ export function useTransactionsController() {
     setIsFilterModalOpen(false);
   }
 
+  function handleOpenEditModal(transaction: Transaction) {
+    setTransactionBeingEdited(transaction);
+    setIsEditModalOpen(true);
+  }
+
+  function handleCloseEditModal() {
+    setIsEditModalOpen(false);
+    setTransactionBeingEdited(null);
+  }
+
   return {
     areValuesVisible,
     isInitialLoading,
@@ -57,5 +73,9 @@ export function useTransactionsController() {
     handleChangeFilters,
     filters,
     handleApplyFilters,
+    transactionBeingEdited,
+    isEditModalOpen,
+    handleOpenEditModal,
+    handleCloseEditModal,
   };
 }
