@@ -178,7 +178,7 @@ export default {
         },
       },
       fontFamily: {
-        'dm-sans': ['DM Sans', 'sans-serif'],
+        'sans': ['DM Sans', 'sans-serif'],
       },
       keyframes: {
         slideUpAndFade: {
