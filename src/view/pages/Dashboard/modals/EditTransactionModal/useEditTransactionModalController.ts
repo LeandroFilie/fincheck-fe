@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useBankAccounts } from '@app/hooks/useBankAccounts';
 import { useCategories } from '@app/hooks/useCategories';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Transaction } from '@app/types/Transaction';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { transactionsService } from '@app/services/transactionsService';
@@ -29,7 +29,6 @@ export function useEditTransactionModalController(
 ) {
   const { accounts } = useBankAccounts();
   const { categories: categoriesResponse } = useCategories();
-
   const {
     register,
     handleSubmit: hookFormHandleSubmit,
@@ -45,13 +44,17 @@ export function useEditTransactionModalController(
       date: transaction ? new Date(transaction?.date) : new Date(),
     },
   });
-
   const queryClient = useQueryClient();
-  const { isLoading, mutateAsync } = useMutation(transactionsService.update);
+  const { isLoading, mutateAsync: updateTransaction } = useMutation(transactionsService.update);
+  const {
+    isLoading: isLoadingDelete,
+    mutateAsync: removeTransaction,
+  } = useMutation(transactionsService.remove);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const handleSubmit = hookFormHandleSubmit(async (data) => {
     try {
-      await mutateAsync({
+      await updateTransaction({
         ...data,
         id: transaction!.id,
         date: data.date.toISOString(),
@@ -79,6 +82,34 @@ export function useEditTransactionModalController(
     categoriesResponse.filter((category) => category.type === transaction?.type)
   ), [categoriesResponse, transaction]);
 
+  async function handleDeleteTransaction() {
+    try {
+      await removeTransaction(transaction!.id);
+
+      queryClient.invalidateQueries({ queryKey: ['transactions'] });
+      toast.success(
+        transaction!.type === 'EXPENSE'
+          ? 'Despesa removida com sucesso'
+          : 'Receita removida com sucesso',
+      );
+      onClose();
+    } catch {
+      toast.error(
+        transaction!.type === 'EXPENSE'
+          ? 'Erro ao remover a despesa'
+          : 'Erro ao remover a receita',
+      );
+    }
+  }
+
+  function handleCloseDeleteModal() {
+    setIsDeleteModalOpen(false);
+  }
+
+  function handleOpenDeleteModal() {
+    setIsDeleteModalOpen(true);
+  }
+
   return {
     register,
     errors,
@@ -87,5 +118,10 @@ export function useEditTransactionModalController(
     accounts,
     categories,
     isLoading,
+    isDeleteModalOpen,
+    isLoadingDelete,
+    handleDeleteTransaction,
+    handleCloseDeleteModal,
+    handleOpenDeleteModal,
   };
 }
