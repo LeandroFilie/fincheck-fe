@@ -6,9 +6,11 @@ import { toast } from 'react-hot-toast';
 import { LaunchScreen } from '@components/LaunchScreen';
 import { localStorageKeys } from '../config/localStorageKeys';
 import { usersService } from '../services/usersService';
+import { User } from '../types/User';
 
 interface AuthContextValue {
   signedIn: boolean;
+  user: User | undefined;
   signin(token: string): void;
   signout(): void;
 }
@@ -22,7 +24,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   });
 
   const {
-    isError, isFetching, isSuccess, remove,
+    isError, isFetching, isSuccess, remove, data,
   } = useQuery({
     queryKey: ['users', 'me'],
     queryFn: () => usersService.me(),
@@ -51,6 +53,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   return (
     <AuthContext.Provider value={{
       signedIn: isSuccess && signedIn,
+      user: data,
       signin,
       signout,
     }}
