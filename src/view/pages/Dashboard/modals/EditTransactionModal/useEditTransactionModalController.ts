@@ -52,6 +52,10 @@ export function useEditTransactionModalController(
   } = useMutation(transactionsService.remove);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
+  const categories = useMemo(() => (
+    categoriesResponse.filter((category) => category.type === transaction?.type)
+  ), [categoriesResponse, transaction]);
+
   const handleSubmit = hookFormHandleSubmit(async (data) => {
     try {
       await updateTransaction({
@@ -63,6 +67,7 @@ export function useEditTransactionModalController(
       });
 
       queryClient.invalidateQueries({ queryKey: ['transactions'] });
+      queryClient.invalidateQueries({ queryKey: ['bankAccounts'] });
       toast.success(
         transaction!.type === 'EXPENSE'
           ? 'Despesa editada com sucesso'
@@ -78,15 +83,12 @@ export function useEditTransactionModalController(
     }
   });
 
-  const categories = useMemo(() => (
-    categoriesResponse.filter((category) => category.type === transaction?.type)
-  ), [categoriesResponse, transaction]);
-
   async function handleDeleteTransaction() {
     try {
       await removeTransaction(transaction!.id);
 
       queryClient.invalidateQueries({ queryKey: ['transactions'] });
+      queryClient.invalidateQueries({ queryKey: ['bankAccounts'] });
       toast.success(
         transaction!.type === 'EXPENSE'
           ? 'Despesa removida com sucesso'
